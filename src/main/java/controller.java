@@ -4,6 +4,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class controller {
     @FXML private CheckBox beef, chicken, impossible, veggie;
@@ -34,10 +35,10 @@ public class controller {
         if (!chooseGarnish.getText().isEmpty()) garnishes.add(chooseGarnish.getText());
 
         ArrayList<String> cheeses = new ArrayList<>();
-        if (american.isSelected()) patties.add("American");
-        if (swiss.isSelected()) patties.add("Swiss");
-        if (cheddar.isSelected()) patties.add("Cheddar");
-        if (pepperjack.isSelected()) patties.add("Pepperjack");
+        if (american.isSelected()) cheeses.add("American");
+        if (swiss.isSelected()) cheeses.add("Swiss");
+        if (cheddar.isSelected()) cheeses.add("Cheddar");
+        if (pepperjack.isSelected()) cheeses.add("Pepperjack");
         if (!chooseCheese.getText().isEmpty()) cheeses.add(chooseCheese.getText());
 
 
@@ -81,11 +82,22 @@ public class controller {
         chooseGarnish.clear();
 
 
-        cheeseList.getItems().clear();
-        pattyList.getItems().clear();
-        garnishList.getItems().clear();
-
-
         burgerComboBox.setValue(null);
+    }
+
+    @FXML
+    protected void listButton(){
+        Alert burgersList = new Alert(Alert.AlertType.INFORMATION);
+        burgersList.setTitle("Burgers");
+        StringBuilder burgerDetails = new StringBuilder();
+
+        List<Burger> allObjects = Burger.getAllInstances();
+        StringBuilder burgerNames = new StringBuilder();
+        for (Burger burger : Burger.burgers ){
+            burgerNames.append(burger);
+            burgerNames.append("\n");
+        }
+        burgersList.setContentText(burgerNames.toString());
+        burgersList.showAndWait();
     }
 }

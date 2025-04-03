@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Burger {
-    String buns;
-    ArrayList<String> cheese;
-    ArrayList<String> pattie;
-    ArrayList<String> garnish;
+    public static ArrayList<Burger> burgers = new ArrayList<>();
+    private static String buns;
+    private static ArrayList<String> cheese;
+    private static ArrayList<String> pattie;
+    private static ArrayList<String> garnish;
 
 
     public Burger(String buns, ArrayList<String> cheese, ArrayList<String> pattie, ArrayList<String> garnishes) {
@@ -12,6 +14,8 @@ public class Burger {
         this.cheese = cheese;
         this.pattie = pattie;
         this.garnish = garnishes;
+
+        burgers.add(this);
     }
 
     public String getPrice(){
@@ -35,4 +39,8 @@ public class Burger {
                 totalPrice
         );
     }
+    public static List<Burger> getAllInstances() {
+        return burgers;
+    }
+
 }

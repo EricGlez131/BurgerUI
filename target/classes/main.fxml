@@ -71,6 +71,8 @@
 
     <!-- Submit Button at the Bottom -->
     <Button text="Submit Order" fx:id="submitButton" onAction="#handleSubmit"/>
+    <Button text="Burgers" fx:id="burgersMade" onAction="#listButton"/>
+
 
 
 </VBox>
