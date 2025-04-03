@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.CheckBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Build Your Burger" fx:id="welcomeText"/>
+    <ComboBox fx:id="burgerComboBox">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Sesame Seed bun" />
+                <String fx:value="Brioche bun" />
+                <String fx:value="Potato bun" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+<!--    this is for the patties->-->
+    <Label text="Pick Your Patties" fx:id="pattieLabel"/>
+    <ListView fx:id="pattyList" prefHeight="400" prefWidth="400">
+        <VBox spacing="5">
+            <CheckBox text="Beef" fx:id="beef"/>
+            <CheckBox text="Chicken" fx:id="chicken"/>
+            <CheckBox text="Impossible" fx:id="impossible"/>
+            <CheckBox text="Veggie" fx:id="veggie"/>
+        </VBox>
+    </ListView>
+
+<!--    This is for the cheese-->
+    <Label text="Pick You Cheese" fx:id="cheeseLabel"/>
+    <ListView fx:id="cheeseList" prefHeight="400" prefWidth="400">
+        <VBox spacing="5">
+            <CheckBox text="American" fx:id="american"/>
+            <CheckBox text="Swiss" fx:id="swiss"/>
+            <CheckBox text="Cheddar" fx:id="cheddar"/>
+            <CheckBox text="Pepperjack" fx:id="pepperjack"/>
+            <TextField promptText="Choose Your Own Cheese" fx:id="chooseCheese"/>
+        </VBox>
+    </ListView>
+
+
+<!--    This is for the garnishes-->
+    <Label text="Pick You Garnishes" fx:id="garnishLabel"/>
+    <ListView fx:id="garnishList" prefHeight="400" prefWidth="400">
+        <VBox spacing="5">
+            <CheckBox text="Tomato" fx:id="tomato"/>
+            <CheckBox text="Onion" fx:id="onion"/>
+            <CheckBox text="Lettuce" fx:id="lettuce"/>
+            <CheckBox text="Pickle" fx:id="pickle"/>
+            <CheckBox text="Bacon" fx:id="bacon"/>
+            <CheckBox text="Guacamole" fx:id="guac"/>
+            <CheckBox text="Fried Egg" fx:id="egg"/>
+            <TextField promptText="Choose Your Own Garnish" fx:id="chooseGarnish"/>
+        </VBox>
+    </ListView>
+
+    <!-- Submit Button at the Bottom -->
+    <Button text="Submit Order" fx:id="submitButton" onAction="#handleSubmit"/>
+
+
+</VBox>
