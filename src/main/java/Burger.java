@@ -3,10 +3,10 @@ import java.util.List;
 
 public class Burger {
     public static ArrayList<Burger> burgers = new ArrayList<>();
-    private static String buns;
-    private static ArrayList<String> cheese;
-    private static ArrayList<String> pattie;
-    private static ArrayList<String> garnish;
+    private String buns;
+    private ArrayList<String> cheese;
+    private ArrayList<String> pattie;
+    private ArrayList<String> garnish;
 
 
     public Burger(String buns, ArrayList<String> cheese, ArrayList<String> pattie, ArrayList<String> garnishes) {
@@ -16,6 +16,15 @@ public class Burger {
         this.garnish = garnishes;
 
         burgers.add(this);
+    }
+
+    public double getTotalPriceInDecimal(){
+        double pattyTotal = pattie.size() * 1.5;
+        double cheeseTotal = cheese.size() * .75;
+        double garnishTotal = garnish.size() * .40;
+        double bunTotal = 3;
+
+        return pattyTotal + cheeseTotal + garnishTotal + bunTotal;
     }
 
     public String getPrice(){
